@@ -1,4 +1,4 @@
-A software that logs answer to 3 questions regarding current mood.
+A software that logs answers to 3 questions regarding current mood.
 
 Results are logged to the current directory as a YAML file.
 
