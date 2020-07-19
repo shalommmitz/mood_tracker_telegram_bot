@@ -98,8 +98,8 @@ def send_message(text, chat_id, reply_markup=None):
 #button_list.append(telegram.InlineKeyboardButton('Button two', callback_data='query_two'))
 #rmu = telegram.InlineKeyboardMarkup(build_menu(button_list, n_cols=2))
 
-def send_question(question):
-    send_message( question, id, build_keyboard([str(i) for i in range(1,11)]) )
+def send_question(question, keyword):
+    send_message( question, id, build_keyboard([keyword+"-"+str(i) for i in range(1,11)]) )
 
 
 # Everything in the updates before we send the first message is not interesting (stale)
@@ -114,7 +114,7 @@ if len(updates["result"]) > 0:
     not_yet_handled_update_id = get_last_update_id(updates) + 1
 
 toLog("    Before sending intial msg")
-send_question( 'What is your energy ?')
+send_question( 'What is your energy ?', "energy")
 toLog("    After sending intial msg")
 
 done = False
@@ -135,10 +135,10 @@ while not done:
             toLog("    "+ reply_to_message +" --> "+ reply)
             if reply_to_message=='What is your energy ?':
                 log_data("Energy", reply)
-                send_question( 'What is your mood ?')
+                send_question( 'What is your mood ?', "mood")
             elif reply_to_message=='What is your mood ?':
                 log_data("Mood", reply)
-                send_question( 'How much did you do today ?')
+                send_question( 'How much did you do today ?', "howMuch")
             elif reply_to_message=='How much did you do today ?':
                 log_data("Done-today", reply)
                 done = True

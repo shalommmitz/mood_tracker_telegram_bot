@@ -20,16 +20,23 @@ On Ubuntu or Debian:
    1. Create a Telegram bot, using "botFather"
    2. Edit the bot to 'privacy off'
    3. Configure the token: 
-      Copy the token code to a file named 'token', at the current directory.
-      If you execute 'ls -l token', you should see something like this:
+      Copy the token code to a new file named 'token', at the current directory.
+   4. Check that the 'token' file is of correct size:
+      Execute `ls -l token`, you should see something like this:
 
         `user@host:~/mood_tracker_telegram_bot$ ls -l token`
         `-rw-rw-r-- 1 user user 47 Jul 13 22:24 token`
+        `user@host:~/mood_tracker_telegram_bot$`
+ 
+      The important part is the size, which appears before the date. It should be 47, like in the example above. The user name and date will be different, which does not matter.
+      
+   5. Here is an example of how the contents of the file will look like: 
         `user@host:~/mood_tracker_telegram_bot$ cat token`
         `1????????1:AC???????????????????????????????l4`
         `user@host:~/mood_tracker_telegram_bot$`
 
-   4. From your Telegram client, open a conversation with the bot and send it a message. the content of the message does not matter.
+   4. Send an initial message to the bot:
+      From your Telegram client, open a conversation with the bot and send it a message. the content of the message does not matter.
    5. Sanity test that the token is OK:
       Run `./get_updates`. This should display the message you just sent.
    6. Configure the id:
