@@ -133,14 +133,17 @@ while not done:
             else:
                 reply_to_message = ""
             toLog("    "+ reply_to_message +" --> "+ reply)
-            if reply_to_message=='What is your energy ?':
-                log_data("Energy", reply)
+            #if reply_to_message=='What is your energy ?':
+            if reply.startswith("energy-") and reply[len("energy-"):].isdigit():
+                log_data("Energy", reply.split("-")[-1])
                 send_question( 'What is your mood ?', "mood")
-            elif reply_to_message=='What is your mood ?':
-                log_data("Mood", reply)
+            #elif reply_to_message=='What is your mood ?':
+            elif reply.startswith("mood-") and reply[len("mood-"):].isdigit():
+                log_data("Mood", reply.split("-")[-1])
                 send_question( 'How much did you do today ?', "howMuch")
-            elif reply_to_message=='How much did you do today ?':
-                log_data("Done-today", reply)
+            #elif reply_to_message=='How much did you do today ?':
+            elif reply.startswith("howMuch-") and reply[len("howMuch-"):].isdigit():
+                log_data("Done-today", reply.split("-")[-1])
                 done = True
             else:
                 toLog("Got unknown text in result - it is Ok - just ignoring it")

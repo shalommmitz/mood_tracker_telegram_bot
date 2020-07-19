@@ -2,6 +2,12 @@ A software that logs answers to 3 questions regarding current mood.
 
 Results are logged to the current directory as a YAML file.
 
+## Thanks and Credit
+
+   The code in bot.py is based on the repository 
+   https://github.com/sixhobbits/python-telegram-tutorial
+   Thanks !
+
 ## Dependencies 
 
 Developed and tested on Xubuntu 18.04, but should work on any Linux.
